@@ -19,9 +19,20 @@ func color(_ rgbColor: Int) -> UIColor {
 }
 
 class ViewController: UIViewController, FaveButtonDelegate {
+    func instantCallback(_ faveButton: FaveButton, didSelected selected: Bool) {
+    }
 
     @IBOutlet var heartButton: FaveButton?
     @IBOutlet var loveButton: FaveButton?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.heartButton?.setSelected(selected: true, animated: false)
+
+        self.loveButton?.setSelected(selected: true, animated: false)
+        self.loveButton?.setSelected(selected: false, animated: false)
+    }
 
     let colors = [
         DotColors(first: color(0x7DC2F4), second: color(0xE2264D)),
