@@ -116,16 +116,16 @@ extension FaveButton {
     fileprivate func applyInit() {
         
         if nil == faveIconImage {
-            faveIconImage = image(for: UIControlState())
+            faveIconImage = image(for: UIControl.State())
         }
         
         guard let faveIconImage = faveIconImage else {
             fatalError("please provide an image for normal state.")
         }
         
-        setImage(UIImage(), for: UIControlState())
+        setImage(UIImage(), for: UIControl.State())
         setImage(UIImage(), for: .selected)
-        setTitle(nil, for: UIControlState())
+        setTitle(nil, for: UIControl.State())
         setTitle(nil, for: .selected)
         
         faveIcon  = createFaveIcon(faveIconImage)
@@ -176,7 +176,7 @@ extension FaveButton {
         self.addTarget(self, action: #selector(toggle(_:)), for: .touchUpInside)
     }
     
-    func toggle(_ sender: FaveButton){
+    @objc func toggle(_ sender: FaveButton){
         if canReceiveClick {
             sender.isSelected = !sender.isSelected
             
